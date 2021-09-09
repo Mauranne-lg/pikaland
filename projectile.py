@@ -30,6 +30,13 @@ class Projectile(pygame.sprite.Sprite):
         self.rect.x += self.velocity
         self.rotate()
 
+        # si le proj entre en collision avec une goat
+        for goat in self.player.game.check_collision(self, self.player.game.all_goats):
+            # on suprr le proj
+            self.remove()
+            # on inflige des degats
+            goat.damage(self.player.attack)
+
         # si notre projectile n'est plus visible
         if self.rect.x > 1280:
             # suppr le proj
