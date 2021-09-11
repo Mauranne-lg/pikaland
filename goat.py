@@ -14,7 +14,7 @@ class Goat(pygame.sprite.Sprite):
         self.image = pygame.image.load('assets/goat.png')
         self.image = pygame.transform.scale(self.image, (300, 180))
         self.rect = self.image.get_rect()
-        self.rect.x = 1150 + random.randint(000, 500)
+        self.rect.x = 1150 + random.randint(0, 600)
         self.rect.y = 400
         self.velocity = random.randint(1, 2)
 
@@ -26,7 +26,7 @@ class Goat(pygame.sprite.Sprite):
         if self.health <= 0:
             # réapparition comme nouveau monstre
             self.game.score += 20
-            self.rect.x = 1150 + random.randint(200, 800)
+            self.rect.x = 1150 + random.randint(0, 600)
             self.velocity = random.randint(2, 4)
             self.health = self.max_health
             self.game.sound_manager.play('goat')

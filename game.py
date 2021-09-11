@@ -33,11 +33,12 @@ class Game:
     def game_over(self):
         # remettre le jeu à zéro (pas de monstre, jeu en attente, vie du joeur à 0)
         self.all_goats = pygame.sprite.Group()
+        self.spawn_goat()
+        self.spawn_goat()
         self.eagle_event.all_eagles = pygame.sprite.Group()
         self.eagle_event.reset_percent()
         self.player.health = 100
         self.is_playing = False
-        self.score = 0
         self.sound_manager.play('game_over')
 
     def update(self, screen):

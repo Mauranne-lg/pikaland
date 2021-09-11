@@ -8,7 +8,7 @@ class EagleFallEvent:
     # lors du chargement, on crée un compteur
     def __init__(self, game):
         self.percent = 0
-        self.percent_speed = 40
+        self.percent_speed = 10
         self.game = game
         self.fall_mode = False
 

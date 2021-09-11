@@ -48,6 +48,10 @@ while running:
         # ajouter ecran de bienvenue
         screen.blit(play_button, play_button_rect)
         screen.blit(banner, (400, 40))
+        # afficher le score
+        score_text = game.font.render(f"Score : {game.score}", 1, (0, 0, 0))
+        screen.blit(score_text, (20, 20))
+
 
     # mettre à jour l'écran
     pygame.display.flip()
@@ -76,6 +80,7 @@ while running:
             if play_button_rect.collidepoint(event.pos):
                 # lancer le jeu
                 game.is_playing = True
+                game.score = 0
                 game.sound_manager.play('start')
 
     #fixer le nombre de FPS sur ma clock
