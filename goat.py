@@ -16,7 +16,7 @@ class Goat(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 1150 + random.randint(000, 500)
         self.rect.y = 400
-        self.velocity = random.randint(1, 3)
+        self.velocity = random.randint(1, 2)
 
     def damage(self, amount):
         # infliger les degats
@@ -25,10 +25,17 @@ class Goat(pygame.sprite.Sprite):
         # vérifier si encore en vie
         if self.health <= 0:
             # réapparition comme nouveau monstre
-            self.rect.x = 1150 + random.randint(0, 500)
+            self.rect.x = 1150 + random.randint(200, 800)
             self.velocity = random.randint(1, 3)
             self.health = self.max_health
 
+            # si la barre d'event est chargée à son max
+            if self.game.eagle_event.is_full_loaded():
+                # retirer du jeu
+                self.game.all_goats.remove(self)
+
+            # appel de la méthode pour essayer de déclencher l'attaque d'aigles
+            self.game.eagle_event.attempt_fall()
 
 
     def update_health_bar(self, surface):

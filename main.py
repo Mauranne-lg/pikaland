@@ -7,6 +7,10 @@ from game import Game
 
 pygame.init()
 
+# definir une clock
+
+clock = pygame.time.Clock()
+FPS = 80
 
 # générer la fenetre du jeu
 pygame.display.set_caption("Pika game")
@@ -71,7 +75,8 @@ while running:
             if play_button_rect.collidepoint(event.pos):
                 # lancer le jeu
                 game.is_playing = True
-
+    #fixer le nombre de FPS sur ma clock
+    clock.tick(FPS)
 
 
 
