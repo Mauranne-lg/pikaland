@@ -25,9 +25,11 @@ class Goat(pygame.sprite.Sprite):
         # vérifier si encore en vie
         if self.health <= 0:
             # réapparition comme nouveau monstre
+            self.game.score += 20
             self.rect.x = 1150 + random.randint(200, 800)
-            self.velocity = random.randint(1, 3)
+            self.velocity = random.randint(2, 4)
             self.health = self.max_health
+            self.game.sound_manager.play('goat')
 
             # si la barre d'event est chargée à son max
             if self.game.eagle_event.is_full_loaded():

@@ -8,7 +8,7 @@ class EagleFallEvent:
     # lors du chargement, on crée un compteur
     def __init__(self, game):
         self.percent = 0
-        self.percent_speed = 5
+        self.percent_speed = 40
         self.game = game
         self.fall_mode = False
 
@@ -25,6 +25,7 @@ class EagleFallEvent:
         self.percent = 0
 
     def eagle_fall(self):
+        self.game.sound_manager.play('eagles')
         # boucle pour faire apparaitre 1 et 10 aigles
         for i in range(1, 20):
             # on fait apparaitre un aigle

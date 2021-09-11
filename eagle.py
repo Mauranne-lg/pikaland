@@ -10,7 +10,7 @@ class Eagle(pygame.sprite.Sprite):
         self.image = pygame.image.load('assets/eagle.png')
         self.image = pygame.transform.scale(self.image, (150, 100))
         self.rect = self.image.get_rect()
-        self.velocity = random.randint(1, 5)
+        self.velocity = random.randint(3, 8)
         self.rect.x = random.randint(20, 1100)
         self.rect.y = - random.randint(0, 800)
         self.eagle_event = eagle_event

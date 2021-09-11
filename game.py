@@ -1,6 +1,7 @@
 from player import Player
 from goat import Goat
 from eagle_event import EagleFallEvent
+from sounds import SoundManager
 import pygame
 
 
@@ -18,6 +19,11 @@ class Game:
         self.eagle_event = EagleFallEvent(self)
         # groupe de goat
         self.all_goats = pygame.sprite.Group()
+        # gerer le son
+        self.sound_manager = SoundManager()
+        # score à 0
+        self.font = pygame.font.Font("assets/IndieFlower-Regular.ttf", 30)
+        self.score = 0
 
         # Permet un déplacement fluide du player
         self.pressed = {}
@@ -31,8 +37,14 @@ class Game:
         self.eagle_event.reset_percent()
         self.player.health = 100
         self.is_playing = False
+        self.score = 0
+        self.sound_manager.play('game_over')
 
     def update(self, screen):
+        # afficher le score
+        score_text = self.font.render(f"Score : {self.score}", 1, (0, 0, 0))
+        screen.blit(score_text, (20, 20))
+
         # appliquer image joueur
         screen.blit(self.player.image, self.player.rect)
 
