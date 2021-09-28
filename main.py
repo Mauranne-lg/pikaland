@@ -10,7 +10,7 @@ pygame.init()
 # definir une clock
 
 clock = pygame.time.Clock()
-FPS = 80
+FPS = 100
 
 # générer la fenetre du jeu
 pygame.display.set_caption("Pika game")
